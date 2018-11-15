@@ -1,0 +1,7 @@
+{
+  "name": "HunterGuide-WebApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
