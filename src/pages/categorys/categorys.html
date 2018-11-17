@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Categorias</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="close(null)">
+        CANCELAR
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-categorias">
+  <ion-refresher (ionRefresh)="updateCategorysList($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Puxe para atualizar"
+      refreshingSpinner="crescent"
+      refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <button color="primary" ion-item *ngFor="let category of categorys" (click)="close(category)">{{category.name}}</button>
+
+  <ion-infinite-scroll (ionInfinite)="paginateCategorysList($event)">
+    <ion-infinite-scroll-content loadingText="Carregando mais games..." *ngIf="paginate"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+

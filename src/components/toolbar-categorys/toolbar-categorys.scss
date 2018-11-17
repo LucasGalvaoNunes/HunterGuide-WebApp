@@ -1,0 +1,27 @@
+toolbar-categorys {
+  .title-category{
+    h5{
+      font-size: 15px !important;
+    }
+    ion-icon{
+      font-size: 15px !important;
+    }
+  }
+  .button-filtro{
+    ion-icon{
+      font-size: 25px !important;
+    }
+  }
+  .label-count{
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    line-height: 15px;
+    background-color: #000;
+    padding: 0 4px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+  }
+}
