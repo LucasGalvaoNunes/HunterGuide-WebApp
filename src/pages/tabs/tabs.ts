@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ProfilePage} from "../profile/profile";
-import {GuidePage} from "../guide/guide";
 import {FavoritesPage} from "../favorites/favorites";
+import {ConsolesPage} from "../consoles/consoles";
 
 
 @Component({
@@ -10,7 +10,7 @@ import {FavoritesPage} from "../favorites/favorites";
 export class TabsPage {
 
   tab1Root = ProfilePage;
-  tab2Root = GuidePage;
+  tab2Root = ConsolesPage;
   tab3Root = FavoritesPage;
 
   constructor() {

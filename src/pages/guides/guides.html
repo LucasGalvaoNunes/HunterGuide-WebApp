@@ -6,13 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Guide</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>{{step.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div [innerHtml]="guide.text" *ngIf="guide"></div>
 </ion-content>

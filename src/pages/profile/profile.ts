@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {UsersModel} from "../../models/UsersModel";
+import {UsersProvider} from "../../providers/users/users";
 
 /**
  * Generated class for the ProfilePage page.
@@ -14,11 +16,24 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public users: UsersModel;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public usersProvider: UsersProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    this.loadUsers();
   }
 
+  loadUsers(){
+      this.usersProvider.profile().then((value: any) => {
+        if(value.status){
+          this.users = <UsersModel> value.data;
+          console.log(this.users);
+        }
+      }).catch((valueError) => {
+        console.log(valueError);
+      })
+  }
 }
