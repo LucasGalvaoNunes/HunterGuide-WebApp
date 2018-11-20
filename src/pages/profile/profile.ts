@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {AlertController, App, ModalController, NavController, NavParams,} from 'ionic-angular';
 import {UsersModel} from "../../models/UsersModel";
 import {UsersProvider} from "../../providers/users/users";
+import {LoginPage} from "../login/login";
+import {Storage} from "@ionic/storage";
+import {CreateUpdateUsersPage} from "../create-update-users/create-update-users";
 
 /**
  * Generated class for the ProfilePage page.
@@ -19,11 +22,51 @@ export class ProfilePage {
   public users: UsersModel;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public storage: Storage,
+              private app: App,
+              public modalCtrl: ModalController,
+              public alertCtrl: AlertController,
               public usersProvider: UsersProvider) {
   }
 
   ionViewDidLoad() {
     this.loadUsers();
+  }
+
+  logout() {
+    let alert = this.alertCtrl.create({
+      title: 'Deslogar de sua conta?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Sim',
+          handler: formData => {
+            this.storage.clear();
+            this.app.getRootNav().setRoot(LoginPage);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  openEditProfile(){
+    let createMdl = this.modalCtrl.create(CreateUpdateUsersPage, {isCreate: false});
+    createMdl.onDidDismiss(value => {
+      this.users = value.data;
+      let alert = this.alertCtrl.create({
+        title: 'Atualizado!',
+        subTitle: value.message,
+        buttons: ['Ok']
+      });
+      alert.present();
+    });
+    createMdl.present();
   }
 
   loadUsers(){

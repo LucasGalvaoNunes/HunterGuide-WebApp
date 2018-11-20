@@ -7,6 +7,14 @@
 <ion-header no-border>
   <ion-navbar color="primary" transparent no-border>
     <ion-title>Meus dados</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+      <button ion-button icon-only color="royal" (click)="openEditProfile()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

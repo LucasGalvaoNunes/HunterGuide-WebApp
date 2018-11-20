@@ -6,7 +6,6 @@ import {TabsPage} from "../tabs/tabs";
 import { Storage } from '@ionic/storage';
 import {UsersModel} from "../../models/UsersModel";
 import {CreateUpdateUsersPage} from "../create-update-users/create-update-users";
-import {CategorysPage} from "../categorys/categorys";
 /**
  * Generated class for the LoginPage page.
  *
