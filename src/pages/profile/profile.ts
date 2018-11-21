@@ -56,15 +56,20 @@ export class ProfilePage {
   }
 
   openEditProfile(){
-    let createMdl = this.modalCtrl.create(CreateUpdateUsersPage, {isCreate: false});
+    let createMdl = this.modalCtrl.create(CreateUpdateUsersPage, {
+      isCreate: false,
+      users: this.users
+    });
     createMdl.onDidDismiss(value => {
-      this.users = value.data;
-      let alert = this.alertCtrl.create({
-        title: 'Atualizado!',
-        subTitle: value.message,
-        buttons: ['Ok']
-      });
-      alert.present();
+      if(value != null && value.status){
+          this.users = value.users;
+          let alert = this.alertCtrl.create({
+            title: 'Atualizado!',
+            subTitle: value.message,
+            buttons: ['Ok']
+          });
+          alert.present();
+      }
     });
     createMdl.present();
   }

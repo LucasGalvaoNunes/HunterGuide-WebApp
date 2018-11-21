@@ -74,7 +74,7 @@ export class UsersModel {
     this._api_token = value;
   }
 
-  toObjectJson(){
+  get toObjectJson(){
     return {
       name: this.name,
       lastName: this.lastName,
