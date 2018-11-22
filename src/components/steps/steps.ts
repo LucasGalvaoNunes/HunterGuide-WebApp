@@ -37,6 +37,7 @@ export class StepsComponent {
     }).catch((errorValue : any) => {
       if(!errorValue.error.status){
         this.navCtrl.push(GuidesPage, {
+          isGuide: false,
           step: step
         });
       }

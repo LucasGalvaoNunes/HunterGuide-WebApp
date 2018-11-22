@@ -35,6 +35,7 @@ export class CreateUpdateUsersPage {
     }else{
       this.usersModel = new UsersModel();
     }
+    console.log(this.usersModel);
 
 
 
@@ -81,7 +82,14 @@ export class CreateUpdateUsersPage {
       content: "Realizando seu cadastro ..."
     });
     loading.present();
-    this.usersProvider.create(this.usersModel.toObjectJson).then((value:any) => {
+    this.usersProvider.create({
+      name: this.usersModel.name,
+      lastName: this.usersModel.lastName,
+      aboutMe: this.usersModel.aboutMe,
+      userName: this.usersModel.userName,
+      password: this.usersModel.password,
+      passwordRepeat: this.usersModel.password
+    }).then((value:any) => {
       this.viewCtrl.dismiss({
         message: value.status ? "Usuario atualizado com sucesso!" : "Não foi possivel atualizar seus dados",
         status: value.status
@@ -94,11 +102,19 @@ export class CreateUpdateUsersPage {
   }
 
   updateUser(){
+    console.log('Atualizar');
     let loading = this.loadingCtrl.create({
-      content: "Realizando seu cadastro ..."
+      content: "Atualizando seus dados ..."
     });
     loading.present();
-    this.usersProvider.update(this.usersModel.toObjectJson).then((value:any) => {
+    let dados = {
+      name: this.usersModel.name,
+      lastName: this.usersModel.lastName,
+      aboutMe: this.usersModel.aboutMe,
+      userName: this.usersModel.userName,
+    };
+
+    this.usersProvider.update(dados).then((value:any) => {
       this.viewCtrl.dismiss({
         users: this.usersModel,
         message: value.status ? "Usuario atualizado com sucesso!" : "Não foi possivel atualizar seus dados",

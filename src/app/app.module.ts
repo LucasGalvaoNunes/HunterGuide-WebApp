@@ -28,6 +28,7 @@ import { CategorysProvider } from '../providers/categorys/categorys';
 import {ToolbarCategorysComponent} from "../components/toolbar-categorys/toolbar-categorys";
 import { IonicStorageModule } from '@ionic/storage';
 import {CreateUpdateUsersPage} from "../pages/create-update-users/create-update-users";
+import {GuidesComponent} from "../components/guides/guides";
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {CreateUpdateUsersPage} from "../pages/create-update-users/create-update-
     GamesComponent,
     StepsComponent,
     ToolbarCategorysComponent,
+    GuidesComponent,
     TabsPage
   ],
   imports: [
@@ -76,6 +78,7 @@ import {CreateUpdateUsersPage} from "../pages/create-update-users/create-update-
     ConsoleComponent,
     GamesComponent,
     StepsComponent,
+    GuidesComponent,
     ToolbarCategorysComponent,
     TabsPage
   ],

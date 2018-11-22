@@ -75,12 +75,6 @@ export class UsersModel {
   }
 
   get toObjectJson(){
-    return {
-      name: this.name,
-      lastName: this.lastName,
-      aboutMe: this.aboutMe,
-      userName: this.userName,
-      password: this.password
-    }
+    return
   }
 }

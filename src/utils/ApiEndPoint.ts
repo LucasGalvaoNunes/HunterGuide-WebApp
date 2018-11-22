@@ -21,7 +21,8 @@ export class ApiEndPoint {
 
   // GUIDES
   public static GUIDE_OF_STEP = ApiEndPoint.API + "guides/guideOfStep/";
-
+  public static GUIDE_FAVORITES = ApiEndPoint.API + "guides/allFavoritesGuides";
+  public static GUIDE_SAVE_FAVORITES = ApiEndPoint.API + "guides/saveGuideFavorite/";
 
   public static STORAGE_TOKEN = '_token';
 

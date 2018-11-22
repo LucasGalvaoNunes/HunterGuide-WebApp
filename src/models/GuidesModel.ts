@@ -3,6 +3,7 @@ export class GuidesModel {
   private _fkUsers: number;
   private _visualizations: number;
   private _title: string;
+  private _pictureLink: string;
   private _text: string;
 
 
@@ -36,6 +37,15 @@ export class GuidesModel {
 
   set title(value: string) {
     this._title = value;
+  }
+
+
+  get pictureLink(): string {
+    return this._pictureLink;
+  }
+
+  set pictureLink(value: string) {
+    this._pictureLink = value;
   }
 
   get text(): string {
