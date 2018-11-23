@@ -1,5 +1,6 @@
 export class UsersModel {
   private _id: number;
+  private _picture: string;
   private _name: string;
   private _lastName: string;
   private _aboutMe: string;
@@ -15,6 +16,15 @@ export class UsersModel {
 
   set id(value: number) {
     this._id = value;
+  }
+
+
+  get picture(): string {
+    return this._picture;
+  }
+
+  set picture(value: string) {
+    this._picture = value;
   }
 
   get name(): string {

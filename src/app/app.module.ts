@@ -29,6 +29,10 @@ import {ToolbarCategorysComponent} from "../components/toolbar-categorys/toolbar
 import { IonicStorageModule } from '@ionic/storage';
 import {CreateUpdateUsersPage} from "../pages/create-update-users/create-update-users";
 import {GuidesComponent} from "../components/guides/guides";
+import {Camera} from "@ionic-native/camera";
+import {Crop} from "@ionic-native/crop";
+import {Base64} from "@ionic-native/base64";
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -84,6 +88,10 @@ import {GuidesComponent} from "../components/guides/guides";
   ],
   providers: [
     StatusBar,
+    Camera,
+    Crop,
+    Base64,
+    File,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConsolesProvider,

@@ -6,6 +6,8 @@ export class ApiEndPoint {
   public static USERS_CREATE = ApiEndPoint.API + "users/create";
   public static USERS_PROFILE = ApiEndPoint.API + "users/profile";
   public static USERS_UPDATE = ApiEndPoint.API + "users/update";
+  public static USERS_UPDATE_PICTURE = ApiEndPoint.API + "users/updateProfilePicture";
+  public static USERS_UPDATE_BACKGROUND = ApiEndPoint.API + "users/updateProfileBackgroundPicture";
 
   // CONSOLES
   public static CONSOLES_ALL = ApiEndPoint.API + "consoles/all";
