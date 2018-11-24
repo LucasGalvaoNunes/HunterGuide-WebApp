@@ -1,0 +1,31 @@
+<!--
+  Generated template for the StepsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="updateStepsList($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Puxe para atualizar"
+      refreshingSpinner="crescent"
+      refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <steps *ngFor="let step of steps" [steps]="step" [game]="game"></steps>
+
+  <ion-infinite-scroll (ionInfinite)="paginateStepsList($event)">
+    <ion-infinite-scroll-content loadingText="Carregando mais passos..." *ngIf="paginate"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

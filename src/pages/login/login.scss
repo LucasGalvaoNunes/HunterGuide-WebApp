@@ -1,0 +1,40 @@
+page-login {
+  .scroll-content{
+    background-color: $primaryDark !important;
+  }
+  ion-content{
+    background-color: $primaryDark !important;
+  }
+  .logo {
+    width: 70%;
+    height: auto;
+    padding-top: 9vh;
+    margin-bottom: 15vh;
+  }
+  span {
+    color: white;
+  }
+  ion-item {
+    color: white !important;
+    padding-left: 10px !important;
+    margin-bottom: 10px;
+    background-color: transparent !important;
+    font-size: 0.9em;
+  }
+  ::-webkit-input-placeholder {
+    color: white !important;
+  }
+  .login-container {
+    color: white;
+    position: absolute;
+    top: 0;
+    padding: 10vw;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  ion-button {
+    opacity: 0.8;
+  }
+}
