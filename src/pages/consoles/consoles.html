@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="secondary">
+  <ion-navbar color="primary">
     <ion-title>Consoles</ion-title>
   </ion-navbar>
 </ion-header>
@@ -21,7 +21,15 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <console *ngFor="let console of consoles" [console]="console"></console>
+  <div class="pins">
+    <ion-card class="pin" *ngFor="let console of consoles" (click)="openGamesOfConsole(console)">
+      <img [src]="console.pictureLink" width="100" height="100"/>
+      <ion-item>
+        <h2 text-center><b>{{console.name}}</b></h2>
+      </ion-item>
+    </ion-card>
+  </div>
+  <!--<console *ngFor="let console of consoles" [console]="console"></console>-->
 
   <ion-infinite-scroll (ionInfinite)="paginateConsolesList($event)">
     <ion-infinite-scroll-content loadingText="Carregando mais consoles..." *ngIf="paginate"></ion-infinite-scroll-content>

@@ -47,10 +47,9 @@ export class LoginPage {
         this.app.getRootNav().setRoot(TabsPage);
       }
     }).catch((valueError:any) => {
-      console.log(valueError);
       let alert = this.alertCtrl.create({
-        title: 'Aviso!',
-        subTitle: valueError.error.message,
+        title: 'Ops!',
+        subTitle: "Usuario ou senha não encontrados!",
         buttons: ['Ok']
       });
       alert.present();
@@ -62,12 +61,15 @@ export class LoginPage {
   createUser(){
     let createMdl = this.modalCtrl.create(CreateUpdateUsersPage, {isCreate: true});
     createMdl.onDidDismiss(data => {
-      let alert = this.alertCtrl.create({
-        title: 'Cadastro!',
-        subTitle: data.message,
-        buttons: ['Ok']
-      });
-      alert.present();
+      if(data){
+        let alert = this.alertCtrl.create({
+          title: 'Cadastro!',
+          subTitle: data.message,
+          buttons: ['Ok']
+        });
+        alert.present();
+      }
+
     });
     createMdl.present();
   }

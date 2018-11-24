@@ -42,6 +42,7 @@ $text:           #ffffff;
 $danger:         #f53d3d;
 $background:     #ffffff;
 
+
 $colors: (
   primary:        $primary,
   primaryLight:   $primaryLight,
@@ -75,6 +76,8 @@ $tabs-md-tab-text-color: $primaryLight;
 
 $background-md-color: $background;
 
+$text-input-md-highlight-color: $secondary;
+
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
@@ -88,7 +91,6 @@ $background-md-color: $background;
 // then be future customized. This import comes last
 // so that the above variables are used and Ionic's
 // default are overridden.
-
 @import "ionic.theme.default";
 
 

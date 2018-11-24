@@ -6,10 +6,10 @@
 -->
 <ion-header>
 
-  <ion-navbar color="secondary">
+  <ion-navbar color="primary">
     <ion-title *ngIf="guide">{{guide.title}}</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only color="royal" (click)="logout()">
+      <button ion-button icon-only color="royal" (click)="voltarInicio()">
         <ion-icon name="exit"></ion-icon>
       </button>
     </ion-buttons>
@@ -22,7 +22,7 @@
   <div [innerHtml]="guide.text" *ngIf="guide"></div>
 
   <ion-fab bottom right *ngIf="!this.isGuide">
-    <button ion-fab (click)="favorite()" color="primaryDark">
+    <button ion-fab (click)="favorite()" color="secondary">
       <ion-icon name="star"></ion-icon>
     </button>
   </ion-fab>

@@ -3,6 +3,7 @@ import {LoadingController, NavController, NavParams} from 'ionic-angular';
 import {ConsolesModel} from "../../models/ConsolesModel";
 import {GamesModel} from "../../models/GamesModel";
 import {GamesProvider} from "../../providers/games/games";
+import {StepsPage} from "../steps/steps";
 
 /**
  * Generated class for the GamesPage page.
@@ -92,6 +93,13 @@ export class GamesPage {
       console.log(errorValue);
     }).then(()=>{
       loading.dismiss();
+    });
+  }
+
+  openStepsOfGame(game: GamesModel){
+    this.navCtrl.push(StepsPage, {
+      game: game,
+      title: game.name
     });
   }
 }

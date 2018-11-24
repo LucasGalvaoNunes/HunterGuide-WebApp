@@ -77,4 +77,8 @@ export class GuidesPage {
     })
   }
 
+  voltarInicio(){
+    this.navCtrl.popToRoot();
+  }
+
 }

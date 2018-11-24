@@ -21,6 +21,7 @@ export class CreateUpdateUsersPage {
 
   public usersModel: UsersModel;
   public usersForm: FormGroup;
+  public buttonName: string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -31,12 +32,12 @@ export class CreateUpdateUsersPage {
 
     this.isCreate = this.navParams.get('isCreate');
     if(!this.isCreate){
+      this.buttonName = "Atualizar";
       this.usersModel = this.navParams.get('users');
     }else{
       this.usersModel = new UsersModel();
+      this.buttonName = "Cadastrar";
     }
-    console.log(this.usersModel);
-
 
 
     this.usersForm = new FormGroup({

@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ProfilePage} from "../pages/profile/profile";
 import {FavoritesPage} from "../pages/favorites/favorites";
-import {ConsoleComponent} from "../components/console/console";
 import {GamesPage} from "../pages/games/games";
 import {ConsolesPage} from "../pages/consoles/consoles";
 import {GuidesPage} from "../pages/guides/guides";
@@ -18,7 +17,6 @@ import { ConsolesProvider } from '../providers/consoles/consoles';
 import {HttpClientModule} from "@angular/common/http";
 import { UsersProvider } from '../providers/users/users';
 import { GamesProvider } from '../providers/games/games';
-import {GamesComponent} from "../components/games/games";
 import {StepsPage} from "../pages/steps/steps";
 import {StepsComponent} from "../components/steps/steps";
 import { StepsProvider } from '../providers/steps/steps';
@@ -50,8 +48,6 @@ import { File } from '@ionic-native/file';
     CreateUpdateUsersPage,
 
     //Components
-    ConsoleComponent,
-    GamesComponent,
     StepsComponent,
     ToolbarCategorysComponent,
     GuidesComponent,
@@ -79,8 +75,6 @@ import { File } from '@ionic-native/file';
     CreateUpdateUsersPage,
 
     //Components
-    ConsoleComponent,
-    GamesComponent,
     StepsComponent,
     GuidesComponent,
     ToolbarCategorysComponent,

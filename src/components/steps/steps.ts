@@ -27,15 +27,24 @@ export class StepsComponent {
   }
 
   openMoreStepsOrGuide(step: StepsModel){
+    let loading = this.loadingCtrl.create({
+      content: "Carregando .."
+    });
+
+    loading.present();
     this.stepsProvider.stepsOfGame(this.game.id, step.id).then((value: any) => {
-      if(value.status)
+      if(value.status){
+        loading.dismiss();
         this.navCtrl.push(StepsPage, {
           game: this.game,
           title: step.name,
           idStepSelected: step.id
         });
+      }
+
     }).catch((errorValue : any) => {
       if(!errorValue.error.status){
+        loading.dismiss();
         this.navCtrl.push(GuidesPage, {
           isGuide: false,
           step: step
