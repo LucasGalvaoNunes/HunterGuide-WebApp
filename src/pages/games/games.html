@@ -22,7 +22,15 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <games *ngFor="let game of games" [games]="game"></games>
+  <!--<games *ngFor="let game of games" [games]="game"></games>-->
+  <div class="pins">
+    <ion-card class="pin" *ngFor="let game of games" (click)="openStepsOfGame(game)">
+      <img [src]="game.pictureLink" width="100" height="200"/>
+      <ion-item>
+        <h2 text-center><b>{{game.name}}</b></h2>
+      </ion-item>
+    </ion-card>
+  </div>
 
   <ion-infinite-scroll (ionInfinite)="paginateGamesList($event)">
     <ion-infinite-scroll-content loadingText="Carregando mais games..." *ngIf="paginate"></ion-infinite-scroll-content>

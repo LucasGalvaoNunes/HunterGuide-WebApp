@@ -3,7 +3,6 @@ import {LoadingController, NavController, NavParams, ViewController} from 'ionic
 import {CategorysModel} from "../../models/CategorysModel";
 import {ConsolesModel} from "../../models/ConsolesModel";
 import {CategorysProvider} from "../../providers/categorys/categorys";
-import {GamesModel} from "../../models/GamesModel";
 
 /**
  * Generated class for the CategorysPage page.

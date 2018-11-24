@@ -31,4 +31,37 @@ export class GuidesProvider {
     });
   }
 
+  allFavorites(pagina:number = 1){
+    return new Promise((resolve, reject)  => {
+      this.storage.get(ApiEndPoint.STORAGE_TOKEN).then((value)=>{
+        let token = value;
+        this.http.get(ApiEndPoint.GUIDE_FAVORITES + "?page=" + pagina,{headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+          }}).subscribe(data => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        });
+      });
+    });
+  }
+
+  favorite(id:number){
+    return new Promise((resolve, reject)  => {
+      this.storage.get(ApiEndPoint.STORAGE_TOKEN).then((value)=>{
+        let token = value;
+        this.http.get(ApiEndPoint.GUIDE_SAVE_FAVORITES + id,{headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+          }}).subscribe(data => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        });
+      });
+    });
+  }
+
+
 }

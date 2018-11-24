@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {LoadingController, NavController, NavParams} from 'ionic-angular';
 import {ConsolesProvider} from "../../providers/consoles/consoles";
 import {ConsolesModel} from "../../models/ConsolesModel";
+import {GamesPage} from "../games/games";
 
 /**
  * Generated class for the ConsolesPage page.
@@ -80,4 +81,9 @@ export class ConsolesPage {
     });
   }
 
+  openGamesOfConsole(console: ConsolesModel){
+    this.navCtrl.push(GamesPage, {
+      console: console,
+    });
+  }
 }

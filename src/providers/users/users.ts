@@ -71,4 +71,36 @@ export class UsersProvider {
     });
   }
 
+  updatePicture(dados){
+    return new Promise((resolve, reject)  => {
+      this.storage.get(ApiEndPoint.STORAGE_TOKEN).then((value)=>{
+        let token = value;
+        this.http.post(ApiEndPoint.USERS_UPDATE_PICTURE, JSON.stringify(dados) ,{headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+          }}).subscribe(data => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        });
+      });
+    });
+  }
+
+  updateBackground(dados){
+    return new Promise((resolve, reject)  => {
+      this.storage.get(ApiEndPoint.STORAGE_TOKEN).then((value)=>{
+        let token = value;
+        this.http.post(ApiEndPoint.USERS_UPDATE_PICTURE, JSON.stringify(dados) ,{headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+          }}).subscribe(data => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        });
+      });
+    });
+  }
+
 }

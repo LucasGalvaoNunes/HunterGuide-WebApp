@@ -21,6 +21,7 @@ export class CreateUpdateUsersPage {
 
   public usersModel: UsersModel;
   public usersForm: FormGroup;
+  public buttonName: string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -30,16 +31,28 @@ export class CreateUpdateUsersPage {
 
 
     this.isCreate = this.navParams.get('isCreate');
+    if(!this.isCreate){
+      this.buttonName = "Atualizar";
+      this.usersModel = this.navParams.get('users');
+    }else{
+      this.usersModel = new UsersModel();
+      this.buttonName = "Cadastrar";
+    }
 
-    this.usersModel = new UsersModel();
+
     this.usersForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(75)]),
       lastName: new FormControl('', [Validators.required, Validators.maxLength(75)]),
       aboutMe: new FormControl('', [Validators.maxLength(100)]),
       userName: new FormControl('', [Validators.required, Validators.maxLength(60)]),
-      password: new FormControl('', [Validators.required, Validators.maxLength(125)]),
-      passwordRepeat: new FormControl('', [Validators.required, Validators.maxLength(125), this.equalto('password')]),
     });
+    if(this.isCreate){
+      this.usersForm.addControl('password',new FormControl('', [Validators.required, Validators.maxLength(125)]));
+      this.usersForm.addControl('passwordRepeat',new FormControl('', [Validators.required, Validators.maxLength(125), this.equalto('password')]));
+    }else{
+      this.usersForm.addControl('password',new FormControl('', [Validators.maxLength(125)]));
+      this.usersForm.addControl('passwordRepeat',new FormControl('', [Validators.maxLength(125), this.equalto('password')]));
+    }
   }
 
   equalto(field_name): ValidatorFn {
@@ -70,8 +83,18 @@ export class CreateUpdateUsersPage {
       content: "Realizando seu cadastro ..."
     });
     loading.present();
-    this.usersProvider.create(this.usersModel.toObjectJson()).then((value:any) => {
-      this.viewCtrl.dismiss(value);
+    this.usersProvider.create({
+      name: this.usersModel.name,
+      lastName: this.usersModel.lastName,
+      aboutMe: this.usersModel.aboutMe,
+      userName: this.usersModel.userName,
+      password: this.usersModel.password,
+      passwordRepeat: this.usersModel.password
+    }).then((value:any) => {
+      this.viewCtrl.dismiss({
+        message: value.status ? "Usuario atualizado com sucesso!" : "Não foi possivel atualizar seus dados",
+        status: value.status
+      });
     }).catch((errorValue) => {
       console.log(errorValue);
     }).then(()=>{
@@ -80,12 +103,24 @@ export class CreateUpdateUsersPage {
   }
 
   updateUser(){
+    console.log('Atualizar');
     let loading = this.loadingCtrl.create({
-      content: "Realizando seu cadastro ..."
+      content: "Atualizando seus dados ..."
     });
     loading.present();
-    this.usersProvider.update(this.usersModel.toObjectJson()).then((value:any) => {
-      this.viewCtrl.dismiss(value);
+    let dados = {
+      name: this.usersModel.name,
+      lastName: this.usersModel.lastName,
+      aboutMe: this.usersModel.aboutMe,
+      userName: this.usersModel.userName,
+    };
+
+    this.usersProvider.update(dados).then((value:any) => {
+      this.viewCtrl.dismiss({
+        users: this.usersModel,
+        message: value.status ? "Usuario atualizado com sucesso!" : "Não foi possivel atualizar seus dados",
+        status: value.status
+      });
     }).catch((errorValue) => {
       console.log(errorValue);
     }).then(()=>{

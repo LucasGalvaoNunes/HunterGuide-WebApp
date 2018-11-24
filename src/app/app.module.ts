@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ProfilePage} from "../pages/profile/profile";
 import {FavoritesPage} from "../pages/favorites/favorites";
-import {ConsoleComponent} from "../components/console/console";
 import {GamesPage} from "../pages/games/games";
 import {ConsolesPage} from "../pages/consoles/consoles";
 import {GuidesPage} from "../pages/guides/guides";
@@ -18,7 +17,6 @@ import { ConsolesProvider } from '../providers/consoles/consoles';
 import {HttpClientModule} from "@angular/common/http";
 import { UsersProvider } from '../providers/users/users';
 import { GamesProvider } from '../providers/games/games';
-import {GamesComponent} from "../components/games/games";
 import {StepsPage} from "../pages/steps/steps";
 import {StepsComponent} from "../components/steps/steps";
 import { StepsProvider } from '../providers/steps/steps';
@@ -28,6 +26,11 @@ import { CategorysProvider } from '../providers/categorys/categorys';
 import {ToolbarCategorysComponent} from "../components/toolbar-categorys/toolbar-categorys";
 import { IonicStorageModule } from '@ionic/storage';
 import {CreateUpdateUsersPage} from "../pages/create-update-users/create-update-users";
+import {GuidesComponent} from "../components/guides/guides";
+import {Camera} from "@ionic-native/camera";
+import {Crop} from "@ionic-native/crop";
+import {Base64} from "@ionic-native/base64";
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -45,10 +48,9 @@ import {CreateUpdateUsersPage} from "../pages/create-update-users/create-update-
     CreateUpdateUsersPage,
 
     //Components
-    ConsoleComponent,
-    GamesComponent,
     StepsComponent,
     ToolbarCategorysComponent,
+    GuidesComponent,
     TabsPage
   ],
   imports: [
@@ -73,14 +75,17 @@ import {CreateUpdateUsersPage} from "../pages/create-update-users/create-update-
     CreateUpdateUsersPage,
 
     //Components
-    ConsoleComponent,
-    GamesComponent,
     StepsComponent,
+    GuidesComponent,
     ToolbarCategorysComponent,
     TabsPage
   ],
   providers: [
     StatusBar,
+    Camera,
+    Crop,
+    Base64,
+    File,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConsolesProvider,

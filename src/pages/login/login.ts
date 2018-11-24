@@ -6,7 +6,6 @@ import {TabsPage} from "../tabs/tabs";
 import { Storage } from '@ionic/storage';
 import {UsersModel} from "../../models/UsersModel";
 import {CreateUpdateUsersPage} from "../create-update-users/create-update-users";
-import {CategorysPage} from "../categorys/categorys";
 /**
  * Generated class for the LoginPage page.
  *
@@ -48,10 +47,9 @@ export class LoginPage {
         this.app.getRootNav().setRoot(TabsPage);
       }
     }).catch((valueError:any) => {
-      console.log(valueError);
       let alert = this.alertCtrl.create({
-        title: 'Aviso!',
-        subTitle: valueError.error.message,
+        title: 'Ops!',
+        subTitle: "Usuario ou senha não encontrados!",
         buttons: ['Ok']
       });
       alert.present();
@@ -63,12 +61,15 @@ export class LoginPage {
   createUser(){
     let createMdl = this.modalCtrl.create(CreateUpdateUsersPage, {isCreate: true});
     createMdl.onDidDismiss(data => {
-      let alert = this.alertCtrl.create({
-        title: 'Cadastro!',
-        subTitle: data.message,
-        buttons: ['Ok']
-      });
-      alert.present();
+      if(data){
+        let alert = this.alertCtrl.create({
+          title: 'Cadastro!',
+          subTitle: data.message,
+          buttons: ['Ok']
+        });
+        alert.present();
+      }
+
     });
     createMdl.present();
   }

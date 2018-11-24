@@ -1,6 +1,6 @@
 <ion-content>
   <div class="login-container">
-    <img class="logo" src="assets/imgs/logohip.png" />
+    <img class="logo" src="assets/imgs/Logo.png" />
     <form (submit)="loginForm()">
       <ion-item>
         <ion-input type="text" [(ngModel)]="user.userName" name="userName" placeholder="Usuario"></ion-input>
@@ -8,7 +8,7 @@
       <ion-item>
         <ion-input type="password" [(ngModel)]="user.password" name="password" placeholder="Senha"></ion-input>
       </ion-item>
-      <button ion-button margin color="primary">LOGIN</button>
+      <button ion-button margin color="secondary">LOGIN</button>
     </form>
     <h5 (click)="createUser()">Cadastre-se Aqui!</h5>
   </div>

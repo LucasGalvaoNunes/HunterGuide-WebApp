@@ -14,101 +14,102 @@
 </ion-header>
 
 
-<ion-content>
-  <ion-list>
-    <form (ngSubmit)="submitForm()" [formGroup]="usersForm">
-      <ion-item>
-        <ion-label floating>Nome</ion-label>
-        <ion-input type="text" [(ngModel)]="usersModel.name" name="name"
-                   formControlName="name" [class.error1]="!usersForm.controls.name.valid && usersForm.controls.name.dirty">
-        </ion-input>
-      </ion-item>
-      <ion-item no-lines *ngIf="(usersForm.get('name').hasError('maxlength') || usersForm.get('name').hasError('required')) && usersForm.get('name').touched">
-        <div class="error" *ngIf="usersForm.get('name').hasError('required') && usersForm.get('name').touched">
-          Nome obrigatório!
-        </div>
-        <div class="error" *ngIf="usersForm.get('name').hasError('maxlength') && usersForm.get('name').touched">
-          No máximo 100 caracter!
-        </div>
-      </ion-item>
+<ion-content padding>
+  <form [formGroup]="usersForm">
+    <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="usersModel.name" name="name"
+                 formControlName="name" [class.error1]="!usersForm.controls.name.valid && usersForm.controls.name.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="(usersForm.get('name').hasError('maxlength') || usersForm.get('name').hasError('required')) && usersForm.get('name').touched">
+      <div class="error" *ngIf="usersForm.get('name').hasError('required') && usersForm.get('name').touched">
+        Nome obrigatório!
+      </div>
+      <div class="error" *ngIf="usersForm.get('name').hasError('maxlength') && usersForm.get('name').touched">
+        No máximo 100 caracter!
+      </div>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>SobreNome</ion-label>
-        <ion-input type="text" [(ngModel)]="usersModel.lastName" name="lastName"
-                   formControlName="lastName" [class.error1]="!usersForm.controls.lastName.valid && usersForm.controls.lastName.dirty">
-        </ion-input>
-      </ion-item>
-      <ion-item no-lines *ngIf="(usersForm.get('lastName').hasError('maxlength') || usersForm.get('lastName').hasError('required')) && usersForm.get('lastName').touched">
-        <div class="error" *ngIf="usersForm.get('lastName').hasError('required') && usersForm.get('lastName').touched">
-          Nome obrigatório!
-        </div>
-        <div class="error" *ngIf="usersForm.get('lastName').hasError('maxlength') && usersForm.get('lastName').touched">
-          No máximo 100 caracter!
-        </div>
-      </ion-item>
+    <ion-item>
+      <ion-label floating>SobreNome</ion-label>
+      <ion-input type="text" [(ngModel)]="usersModel.lastName" name="lastName"
+                 formControlName="lastName" [class.error1]="!usersForm.controls.lastName.valid && usersForm.controls.lastName.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="(usersForm.get('lastName').hasError('maxlength') || usersForm.get('lastName').hasError('required')) && usersForm.get('lastName').touched">
+      <div class="error" *ngIf="usersForm.get('lastName').hasError('required') && usersForm.get('lastName').touched">
+        Nome obrigatório!
+      </div>
+      <div class="error" *ngIf="usersForm.get('lastName').hasError('maxlength') && usersForm.get('lastName').touched">
+        No máximo 100 caracter!
+      </div>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Sobre-mim</ion-label>
-        <ion-input type="text" [(ngModel)]="usersModel.aboutMe" name="aboutMe"
-                   formControlName="aboutMe" [class.error1]="!usersForm.controls.aboutMe.valid && usersForm.controls.aboutMe.dirty">
-        </ion-input>
-      </ion-item>
-      <ion-item no-lines *ngIf="usersForm.get('aboutMe').hasError('maxlength') && usersForm.get('aboutMe').touched">
-        <div class="error" *ngIf="usersForm.get('aboutMe').hasError('maxlength') && usersForm.get('aboutMe').touched">
-          No máximo 100 caracter!
-        </div>
-      </ion-item>
+    <ion-item>
+      <ion-label floating>Sobre-mim</ion-label>
+      <ion-input type="text" [(ngModel)]="usersModel.aboutMe" name="aboutMe"
+                 formControlName="aboutMe" [class.error1]="!usersForm.controls.aboutMe.valid && usersForm.controls.aboutMe.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="usersForm.get('aboutMe').hasError('maxlength') && usersForm.get('aboutMe').touched">
+      <div class="error" *ngIf="usersForm.get('aboutMe').hasError('maxlength') && usersForm.get('aboutMe').touched">
+        No máximo 100 caracter!
+      </div>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="usersModel.userName" name="userName"
-                   formControlName="userName" [class.error1]="!usersForm.controls.userName.valid && usersForm.controls.userName.dirty">
-        </ion-input>
-      </ion-item>
-      <ion-item no-lines *ngIf="(usersForm.get('userName').hasError('maxlength') || usersForm.get('userName').hasError('required')) && usersForm.get('userName').touched">
-        <div class="error" *ngIf="usersForm.get('userName').hasError('required') && usersForm.get('userName').touched">
-          Nome obrigatório!
-        </div>
-        <div class="error" *ngIf="usersForm.get('userName').hasError('maxlength') && usersForm.get('userName').touched">
-          No máximo 100 caracter!
-        </div>
-      </ion-item>
+    <ion-item>
+      <ion-label floating>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="usersModel.userName" name="userName"
+                 formControlName="userName" [class.error1]="!usersForm.controls.userName.valid && usersForm.controls.userName.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="(usersForm.get('userName').hasError('maxlength') || usersForm.get('userName').hasError('required')) && usersForm.get('userName').touched">
+      <div class="error" *ngIf="usersForm.get('userName').hasError('required') && usersForm.get('userName').touched">
+        Nome obrigatório!
+      </div>
+      <div class="error" *ngIf="usersForm.get('userName').hasError('maxlength') && usersForm.get('userName').touched">
+        No máximo 100 caracter!
+      </div>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Senha</ion-label>
-        <ion-input type="text" [(ngModel)]="usersModel.password" name="password"
-                   formControlName="password" [class.error1]="!usersForm.controls.password.valid && usersForm.controls.password.dirty">
-        </ion-input>
-      </ion-item>
-      <ion-item no-lines *ngIf="(usersForm.get('password').hasError('maxlength') || usersForm.get('password').hasError('required')) && usersForm.get('password').touched">
-        <div class="error" *ngIf="usersForm.get('password').hasError('required') && usersForm.get('password').touched">
-          Nome obrigatório!
-        </div>
-        <div class="error" *ngIf="usersForm.get('password').hasError('maxlength') && usersForm.get('password').touched">
-          No máximo 100 caracter!
-        </div>
-      </ion-item>
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="usersModel.password" name="password"
+                 formControlName="password" [class.error1]="!usersForm.controls.password.valid && usersForm.controls.password.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="(usersForm.get('password').hasError('maxlength') || usersForm.get('password').hasError('required')) && usersForm.get('password').touched">
+      <div class="error" *ngIf="usersForm.get('password').hasError('required') && usersForm.get('password').touched">
+        Nome obrigatório!
+      </div>
+      <div class="error" *ngIf="usersForm.get('password').hasError('maxlength') && usersForm.get('password').touched">
+        No máximo 100 caracter!
+      </div>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Confirme a senha</ion-label>
-        <ion-input type="text" [(ngModel)]="usersModel.passwordRepeat" name="passwordRepeat"
-                   formControlName="passwordRepeat" [class.error1]="!usersForm.controls.passwordRepeat.valid && usersForm.controls.passwordRepeat.dirty">
-        </ion-input>
-      </ion-item>
-      <ion-item no-lines *ngIf="(usersForm.get('passwordRepeat').hasError('maxlength') || usersForm.get('passwordRepeat').hasError('required') || usersForm.get('passwordRepeat').hasError('equalTo')) && usersForm.get('passwordRepeat').touched">
-        <div class="error" *ngIf="usersForm.get('passwordRepeat').hasError('required') && usersForm.get('passwordRepeat').touched">
-          Nome obrigatório!
-        </div>
-        <div class="error" *ngIf="usersForm.get('passwordRepeat').hasError('maxlength') && usersForm.get('passwordRepeat').touched">
-          No máximo 100 caracter!
-        </div>
-        <div class="error" *ngIf="usersForm.get('passwordRepeat').hasError('equalTo') && usersForm.get('passwordRepeat').touched">
-          Senha tem que ser igual!
-        </div>
-      </ion-item>
-
-      <button ion-button full color="dark" type="submit" [disabled]="usersForm.invalid">Cadastrar</button>
-    </form>
-  </ion-list>
-
+    <ion-item>
+      <ion-label floating>Confirme a senha</ion-label>
+      <ion-input type="password" [(ngModel)]="usersModel.passwordRepeat" name="passwordRepeat"
+                 formControlName="passwordRepeat" [class.error1]="!usersForm.controls.passwordRepeat.valid && usersForm.controls.passwordRepeat.dirty">
+      </ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="(usersForm.get('passwordRepeat').hasError('maxlength') || usersForm.get('passwordRepeat').hasError('required') || usersForm.get('passwordRepeat').hasError('equalTo')) && usersForm.get('passwordRepeat').touched">
+      <div class="error" *ngIf="usersForm.get('passwordRepeat').hasError('required') && usersForm.get('passwordRepeat').touched">
+        Nome obrigatório!
+      </div>
+      <div class="error" *ngIf="usersForm.get('passwordRepeat').hasError('maxlength') && usersForm.get('passwordRepeat').touched">
+        No máximo 100 caracter!
+      </div>
+      <div class="error" *ngIf="usersForm.get('passwordRepeat').hasError('equalTo') && usersForm.get('passwordRepeat').touched">
+        Senha tem que ser igual!
+      </div>
+    </ion-item>
+  </form>
 </ion-content>
+
+<ion-footer no-shadow no-border>
+  <ion-toolbar no-shadow no-border position="bottom" color="primaryDark">
+    <button ion-button color="text" block small outline (click)="submitForm()" [disabled]="usersForm.invalid">{{buttonName}}</button>
+  </ion-toolbar>
+</ion-footer>
